@@ -14,10 +14,16 @@ $modules{$_} = $_ for qw(
   Alien::Build
   Alien::Build::MM
   ExtUtils::MakeMaker
+  FFI::Platypus
   Test2::V0
+  Test::Alien
 );
 
-
+$post_diag = sub {
+  require Alien::nragent;
+  diag "version        = ", Alien::nragent->config('version');
+  diag "dlls           = ", $_ for Alien::nragent->dynamic_libs;
+};
 
 my @modules = sort keys %modules;
 
