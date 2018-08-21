@@ -1,11 +1,22 @@
 use alienfile;
-plugin 'PkgConfig' => 'libfoo';
+
+probe sub { 'share' };
+
 share {
   plugin Download => (
-    url => 'http://...',
-    filter => qr/*\.tar\.gz$/,
+    url => 'http://download.newrelic.com/agent_sdk/nr_agent_sdk-v0.16.2.0-beta.x86_64.tar.gz',
     version => qr/([0-9\.]+)/,
   );
   plugin Extract => 'tar.gz';
-  plugin 'Build::Autoconf';
+  
+  build [
+    # since this only works on 64bit linux
+    # don't really have to worry about
+    # portability so we can use all the unixisms
+    # we want!
+    'mkdir -p %{.install.prefix}/include',
+    'mkdir -p %{.install.prefix}/lib',
+    'cp -a include/* %{.install.prefix}/include',
+    'cp -a lib/* %{.install.prefix}/lib',
+  ];
 }
