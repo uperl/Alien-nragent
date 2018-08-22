@@ -26,7 +26,7 @@ This Alien dist installs and makes available the NewRelic agent library.
 =cut
 
 {
-  my $fn = first { grep /newrelic-common/ } __PACKAGE__->dynamic_libs;
+  my $fn = first { /newrelic-common/ } __PACKAGE__->dynamic_libs;
   my $handle = dlopen($fn, RTLD_NOW | RTLD_GLOBAL )
     or die "error dlopen $fn @{[ dlerror ]}";
 }
