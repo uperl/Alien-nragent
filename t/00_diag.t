@@ -14,6 +14,7 @@ $modules{$_} = $_ for qw(
   Alien::Build
   Alien::Build::MM
   ExtUtils::MakeMaker
+  FFI::CheckLib
   FFI::Platypus
   FFI::Platypus::DL
   Test2::V0
@@ -23,6 +24,7 @@ $modules{$_} = $_ for qw(
 $post_diag = sub {
   require Alien::nragent;
   diag "version        = ", Alien::nragent->config('version');
+  diag "install_type   = ", Alien::nragent->install_type;
   diag "dlls           = ", $_ for Alien::nragent->dynamic_libs;
 };
 
