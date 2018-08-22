@@ -1,6 +1,9 @@
 use alienfile;
+use File::Glob qw( bsd_glob );
 
-configure { requires 'FFI::CheckLib' };
+configure {
+  requires 'FFI::CheckLib';
+};
 
 probe sub {
   my($build) = @_;
@@ -12,7 +15,15 @@ probe sub {
     $build->runtime_prop->{version} = 'unknown';
     return 'system';
   }
-  
+
+  @system = bsd_glob('/opt/newrelic/lib/libnewrelic*.so');
+  if(@system)
+  {
+    $build->runtime_prop->{my_lib} = \@system;
+    $build->runtime_prop->{version} = 'unknown';
+    return 'system';
+  }
+
   'share';
 };
 
@@ -38,7 +49,7 @@ share {
       die "bad digest";
     }
   };
-  
+
   build [
     # since this only works on 64bit linux
     # don't really have to worry about
@@ -49,7 +60,7 @@ share {
     'cp -a include/* %{.install.prefix}/include',
     'cp -a lib/* %{.install.prefix}/lib',
   ];
-  
+
   gather sub {
     my($build) = @_;
     $build->runtime_prop->{version} = $version;
