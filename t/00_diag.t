@@ -15,6 +15,7 @@ $modules{$_} = $_ for qw(
   Alien::Build::MM
   ExtUtils::MakeMaker
   FFI::Platypus
+  FFI::Platypus::DL
   Test2::V0
   Test::Alien
 );

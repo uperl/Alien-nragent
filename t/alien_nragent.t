@@ -2,7 +2,6 @@ use Test2::V0 -no_srand => 1;
 use Alien::nragent;
 use FFI::Platypus;
 use Test::Alien;
-use Env qw( @LD_LIBRARY_PATH );
 
 alien_ok 'Alien::nragent';
 

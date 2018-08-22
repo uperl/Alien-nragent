@@ -3,7 +3,7 @@ package Alien::nragent;
 use strict;
 use warnings;
 use 5.008001;
-use Env qw( @LD_LIBRARY_PATH );
+use FFI::Platypus::DL;
 use base qw( Alien::Base );
 
 # ABSTRACT: Download and install the NewRelic agent
@@ -24,6 +24,10 @@ This Alien dist installs and makes available the NewRelic agent library.
 
 =cut
 
-unshift @LD_LIBRARY_PATH, Alien::nragent->dist_dir . "/lib";
+{
+  my $fn = __PACKAGE__->dist_dir . "/lib/libnewrelic-common.so";
+  my $handle = dlopen($fn, RTLD_NOW | RTLD_GLOBAL )
+    or die "error dlopen $fn @{[ dlerror ]}";
+}
 
 1;
