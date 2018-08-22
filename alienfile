@@ -4,10 +4,26 @@ probe sub { 'share' };
 
 share {
   my $version = '0.16.2.0-beta';
+  my $sha256 = 'b50aa8abefb83dfd115fbf0dff4d9686b9db27ae3e923e053f301995e091f2f7';
   plugin Download => (
     url => "http://download.newrelic.com/agent_sdk/nr_agent_sdk-v$version.x86_64.tar.gz",
   );
   plugin Extract => 'tar.gz';
+
+  requires 'Crypt::Digest::SHA256';
+  before extract => sub {
+    my($build) = @_;
+    my $digest = Crypt::Digest::SHA256::sha256_file_hex(
+      $build->install_prop->{download},
+    );
+    if($digest ne $sha256)
+    {
+      log "bad SHA256 digest for @{[ $build->install_prop->{download} ]}";
+      log "expected: $sha256";
+      log "got:      $digest";
+      die "bad digest";
+    }
+  };
   
   build [
     # since this only works on 64bit linux
