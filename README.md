@@ -15,6 +15,12 @@ Download and install the NewRelic agent
 
 This Alien dist installs and makes available the NewRelic agent library.
 
+If the NewRelic agent library is already in your library path, then they will be used.
+
+If the NewRelic agent library is installed in `/opt/newrelic`, then that will be used.
+
+Otherwise the NewRelic agent library will be downloaded, and installed.
+
 # AUTHOR
 
 Graham Ollis <plicease@cpan.org>
