@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Extra diagnostics
 
 0.02      2018-08-23 11:39:47 -0400
   - Refuse to install on platforms other than x86_64-linux
