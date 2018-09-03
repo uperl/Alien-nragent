@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Simplify detection logic
 
 0.03      2018-08-28 05:57:45 -0400
   - Extra diagnostics
