@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Include LICENSE file in share install Oops.
 
 0.04      2018-09-04 08:46:09 -0400
   - Simplify detection logic
