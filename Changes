@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.06      2019-07-01 19:45:44 -0400
   - Update to download tarball for most recent version
     (0.17.0.0-beta)
 
