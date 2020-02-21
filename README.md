@@ -4,12 +4,14 @@ Download and install the NewRelic agent
 
 # SYNOPSIS
 
-    use FFI::Platypus;
-    use Alien::nragent;
-    
-    my $ffi = FFI::Platypus->new;
-    $ffi->lib(Alien::nragent->dynamic_libs);
-    ...
+```perl
+use FFI::Platypus;
+use Alien::nragent;
+
+my $ffi = FFI::Platypus->new;
+$ffi->lib(Alien::nragent->dynamic_libs);
+...
+```
 
 # DESCRIPTION
 
