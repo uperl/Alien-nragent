@@ -41,7 +41,7 @@ Bad things will happen if you call newrelic\_init before forking.  So don't do t
 
 # SEE ALSO
 
-- [NewRelic::Agent::FFI::Procedural](https://metacpan.org/pod/NewRelic::Agent::FFI::Procedural)
+- [NewRelic::Agent::FFI::Procedural](https://metacpan.org/pod/NewRelic%3A%3AAgent%3A%3AFFI%3A%3AProcedural)
 
 # AUTHOR
 
