@@ -40,7 +40,7 @@ Otherwise the NewRelic agent library will be downloaded, and installed.
 sub dynamic_libs
 {
   my($class) = @_;
-  
+
   if($class->install_type('system'))
   {
     return @{ $class->runtime_prop->{my_lib} };
