@@ -7,7 +7,7 @@ use FFI::Platypus::DL;
 use List::Util qw( first );
 use base qw( Alien::Base );
 
-# ABSTRACT: Download and install the NewRelic agent
+# ABSTRACT: (Deprecated) Download and install the NewRelic agent
 # VERSION
 
 =head1 SYNOPSIS
@@ -20,6 +20,9 @@ use base qw( Alien::Base );
  ...
 
 =head1 DESCRIPTION
+
+B<NOTE>: This L<Alien> is deprecated.  It is based on the NewRelic Agent SDK, which was only
+ever released as beta software.  Please use L<Alien::libnewrelic> and L<NewFangle> instead.
 
 This Alien dist installs and makes available the NewRelic agent library.
 
