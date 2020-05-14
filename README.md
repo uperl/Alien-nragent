@@ -1,6 +1,6 @@
-# Alien::nragent [![Build Status](https://secure.travis-ci.org/plicease/Alien-nragent.png)](http://travis-ci.org/plicease/Alien-nragent)
+# Alien::nragent [![Build Status](https://travis-ci.org/plicease/Alien-nragent.svg)](http://travis-ci.org/plicease/Alien-nragent)
 
-Download and install the NewRelic agent
+(Deprecated) Download and install the NewRelic agent
 
 # SYNOPSIS
 
@@ -14,6 +14,9 @@ $ffi->lib(Alien::nragent->dynamic_libs);
 ```
 
 # DESCRIPTION
+
+**NOTE**: This [Alien](https://metacpan.org/pod/Alien) is deprecated.  It is based on the NewRelic Agent SDK, which was only
+ever released as beta software.  Please use [Alien::libnewrelic](https://metacpan.org/pod/Alien::libnewrelic) and [NewFangle](https://metacpan.org/pod/NewFangle) instead.
 
 This Alien dist installs and makes available the NewRelic agent library.
 
@@ -41,7 +44,7 @@ Bad things will happen if you call newrelic\_init before forking.  So don't do t
 
 # SEE ALSO
 
-- [NewRelic::Agent::FFI::Procedural](https://metacpan.org/pod/NewRelic%3A%3AAgent%3A%3AFFI%3A%3AProcedural)
+- [NewRelic::Agent::FFI::Procedural](https://metacpan.org/pod/NewRelic::Agent::FFI::Procedural)
 
 # AUTHOR
 
